@@ -14,6 +14,7 @@ RUN apt-get update \
     && apt-get -y install autoconf automake g++ libtool \
     && apt-get -y install ffmpeg libmp3lame-dev x264 \
     && apt-get -y install sqlite3 libsqlite3-dev \
+    && apt-get -y install mono-complete \
     && useradd -m -d /home/container container
 
 # Ensure UTF-8
@@ -41,10 +42,6 @@ RUN npm install -g discord.js \
     && npm install utf-8-validate \
     && npm install ffmpeg \
     && npm install sodium
-
-# Install Mono
-RUN apt-get update \
-    && apt-get -y install mono-complete
 
 COPY ./entrypoint.sh /entrypoint.sh
 
